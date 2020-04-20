@@ -1,0 +1,56 @@
+- hosts: all
+  become: yes
+  vars:
+   src_file1: /opt/files/java-agent.tar.gz
+   dest_file1: /opt/java-agent.tar.gz
+   src_file2: /opt/files/machine-agent.tar.gz
+   dest_file2: /opt/machine-agent.tar.gz
+   src_file3: /opt/files/tomcat8.tar.gz
+   dest_file3: /opt/tomcat8.tar.gz
+   src_file4: /opt/files/setenv.sh
+   dest_file4: /opt/tomcat8/bin/setenv.sh
+   src_file5: /opt/files/knowledge.war
+   dest_file5: /opt/tomcat8/webapps/knowledge.war
+  tasks:
+   - name: Copy file Java Agent
+     copy:
+      src: "{{ src_file1 }}"
+      dest: "{{ dest_file1 }}"
+   - name: Copy file Machine Agent
+     copy:
+      src: "{{ src_file2 }}"
+      dest: "{{ dest_file2 }}"
+   - name: Copy file Tomcat Frame Work
+     copy:
+      src: "{{ src_file3 }}"
+      dest: "{{ dest_file3 }}"
+   - name: Unzip Archive Java Agent
+     unarchive:
+      src: "{{ dest_file1 }}"
+      dest: /opt/
+      remote_src: yes
+   - name: Unzip Archive Machine Agent
+     unarchive:
+      src: "{{ dest_file2 }}"
+      dest: /opt/
+      remote_src: yes
+   - name: Unzip Archive Tomcat Framwork
+     unarchive:
+      src: "{{ dest_file3 }}"
+      dest: /opt/
+      remote_src: yes
+   - name: Copy file setenv.sh file
+     copy:
+      src: "{{ src_file4 }}"
+      dest: "{{ dest_file4 }}"
+   - name: Copy file WAR file
+     copy:
+      src: "{{ src_file5 }}"
+      dest: "{{ dest_file5 }}"
+   - name: Start Tomcat8 w Java Agent
+     command: /opt/tomcat8/bin/startup.sh
+   - name: Start Machine Agent
+     command: /opt/machine-agent/bin/machine-agent -d -p /opt/machine-agent/pidfile
+
+
+
