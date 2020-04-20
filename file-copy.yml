@@ -9,3 +9,4 @@
      copy:
       src: "{{ src_file }}"
       dest: "{{ dest_file }}"
+      remote_src: yes
