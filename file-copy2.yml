@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  vars:
+   src_file: /tmp/testfile
+   dest_file: /tmp/destfile
+  tasks:
+   - name: Copy file
+     copy:
+      src: "{{ src_file }}"
+      dest: "{{ dest_file }}"
