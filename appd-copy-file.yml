@@ -1,0 +1,24 @@
+- hosts: all
+  become: yes
+  vars:
+   src_file1: /opt/files/java-agent.tar.gz
+   dest_file1: /opt/java-agent.tar.gz
+   src_file2: /opt/files/machine-agent.tar.gz
+   dest_file2: /opt/machine-agent.tar.gz
+   src_file3: /opt/files/tomcat8.tar.gz
+   dest_file3: /opt/tomcat8.tar.gz
+  tasks:
+   - name: Copy file Java Agent
+     copy:
+      src: "{{ src_file1 }}"
+      dest: "{{ dest_file1 }}"
+   - name: Copy file Machine Agent
+     copy:
+      src: "{{ src_file2 }}"
+      dest: "{{ dest_file2 }}"
+   - name: Copy file Tomcat Frame Work
+     copy:
+      src: "{{ src_file3 }}"
+      dest: "{{ dest_file3 }}"
+
+
