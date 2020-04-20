@@ -1,7 +1,7 @@
 - hosts: all
   become: yes
   vars:
-   src_file: /tmp/testfile
+   src_file: /opt/testfile
    dest_file: /tmp/destfile
   tasks:
    - name: Copy file
