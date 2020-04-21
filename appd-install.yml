@@ -1,6 +1,12 @@
 - hosts: all
   become: yes
   vars:
+   src_file1: /opt/files/java-agent.tar.gz
+   dest_file1: /opt/java-agent.tar.gz
+   src_file2: /opt/files/machine-agent.tar.gz
+   dest_file2: /opt/machine-agent.tar.gz
+   src_file3: /opt/files/tomcat8.tar.gz
+   dest_file3: /opt/tomcat8.tar.gz
    src_file4: /opt/files/setenv.sh
    dest_file4: /opt/tomcat8/bin/setenv.sh
    src_file5: /opt/files/knowledge.war
