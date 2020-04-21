@@ -1,10 +1,9 @@
 - hosts: all
   become: yes
   tasks:
-   - name: Start Tomcat8 w Java Agent
-     command: /opt/tomcat8/bin/startup.sh
    - name: Start Machine Agent
      command: /opt/machine-agent/bin/machine-agent -d -p /opt/machine-agent/pidfile
-
+   - name: Start tomcat
+     service: name=tomcat state=restarted enabled=yes
 
 

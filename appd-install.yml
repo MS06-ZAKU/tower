@@ -35,6 +35,10 @@
      copy:
       src: "{{ src_file5 }}"
       dest: "{{ dest_file5 }}"
-
-
+   - name: Copy file Tomcat Service file
+     copy:
+      src: "{{ src_file6 }}"
+      dest: "{{ dest_file6 }}"
+   - name: systemd daemon-reload
+     shell: systemctl daemon-reload
 

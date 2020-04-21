@@ -7,6 +7,8 @@
    dest_file2: /opt/machine-agent.tar.gz
    src_file3: /opt/files/tomcat8.tar.gz
    dest_file3: /opt/tomcat8.tar.gz
+   src_file6: /opt/files/tomcat.service
+   dest_file6: /etc/systemd/system/tomcat.service
   tasks:
    - name: Copy file Java Agent
      copy:
@@ -20,5 +22,8 @@
      copy:
       src: "{{ src_file3 }}"
       dest: "{{ dest_file3 }}"
-
+   - name: Copy file Tomcat Service File
+     copy:
+      src: "{{ src_file6 }}"
+      dest: "{{ dest_file6 }}"
 
