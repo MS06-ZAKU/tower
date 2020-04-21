@@ -11,6 +11,8 @@
    dest_file4: /opt/tomcat8/bin/setenv.sh
    src_file5: /opt/files/knowledge.war
    dest_file5: /opt/tomcat8/webapps/knowledge.war
+   src_file6: /opt/files/tomcat.service
+   dest_file6: /etc/systemd/system/tomcat.service
   tasks:
    - name: Unzip Archive Java Agent
      unarchive:
