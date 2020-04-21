@@ -2,7 +2,7 @@
   become: yes
   tasks:
    - name: Expose tomcat
-     shell: firewall-cmd --add-service=tomcat --zone=public --permanent 
+     shell: firewall-cmd --add-port=8080/tcp --zone=public --permanent 
    - name: Restart firewalld
      service: name=firewalld state=restarted enabled=yes
 
