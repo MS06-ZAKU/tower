@@ -2,11 +2,11 @@
   tasks:
    - name: Set pool physical capacity
      infini_pool:
-      name: {{ pool_name }}
-      size: {{ pool_size }}
-      vsize: {{ pool_vsize }}
-      user: {{ user }}
-      password: {{ password }}
+      name: "{{ pool_name }}"
+      size: "{{ pool_size }}"
+      vsize: "{{ pool_vsize }}"
+      user: "{{ user }}"
+      password: "{{ password }}"
       state: present
       ssd_cache: yes
-      system: {{ system_name }}
+      system: "{{ system_name }}"
