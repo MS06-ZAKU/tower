@@ -1,7 +1,6 @@
 - hosts: all
   connection: httpapi
-   port: 443
-   use_ssl: yes
+  port: 443
   tasks:
    - name: Set pool physical capacity
      infini_pool:
