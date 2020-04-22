@@ -1,0 +1,18 @@
+  tasks:
+   - name: Copy file Java Agent
+     copy:
+      src: "{{ src_file1 }}"
+      dest: "{{ dest_file1 }}"
+   - name: Copy file Machine Agent
+     copy:
+      src: "{{ src_file2 }}"
+      dest: "{{ dest_file2 }}"
+   - name: Copy file Tomcat Frame Work
+     copy:
+      src: "{{ src_file3 }}"
+      dest: "{{ dest_file3 }}"
+   - name: Copy file Tomcat Service File
+     copy:
+      src: "{{ src_file6 }}"
+      dest: "{{ dest_file6 }}"
+
