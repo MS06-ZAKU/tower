@@ -1,8 +1,7 @@
-- hosts: all
-  connection: httpapi
-  port: 443
+- hosts: localhost
+  connection: localhost
   tasks:
-   - name: Set pool physical capacity
+   - name: Create pool 
      infini_pool:
       name: "{{ pool_name }}"
       size: "{{ pool_size }}"
@@ -11,4 +10,14 @@
       password: "{{ password }}"
       state: present
       ssd_cache: yes
+      system: "{{ system_name }}"
+
+   - name: Create new file system named foo under pool named bar
+     infini_fs:
+      name: "{{ vol_name }}"
+      size: "{{ vol_size }}"
+      pool: "{{ pool_name }}"
+      state: present
+      user: "{{ user }}"
+      password: "{{ password }}"
       system: "{{ system_name }}"
