@@ -1,5 +1,5 @@
 - hosts: localhost
-  connection: localhost
+  connection: local
   tasks:
    - name: Create pool 
      infini_pool:
