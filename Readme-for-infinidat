@@ -1,0 +1,104 @@
+AnsibleでInfiniboxを操作するための準備
+
+概要：
+Ansibleが使用しているpythonバージョンを検索して、必要なモジュールを
+Playbookを実行するホストにインストールする
+
+必要モジュール
+・capacity
+・infinisdk
+・python >= 2.7
+
+
+１、
+Ansibleバージョンと使用しているPythonバージョンの確認
+[root@ansible ~]# ansible --version|grep "python version"
+  python version = 2.7.5 (default, Aug  7 2019, 00:51:29) [GCC 4.8.5 20150623 (Red Hat 4.8.5-39)]
+
+２、該当するPythonバージョンでモジュールをインストール
+python2.7 -m pip install infinisdk
+
+
+３、必要なモジュールがインストールされているか確認
+[root@ansible ~]# python2.7 -m pip list
+DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. A future version of pip will drop support for Python 2.7. More details about Python 2 support in pip, can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support
+Package                          Version    
+-------------------------------- -----------
+ansible                          2.9.1      
+api-object-schema                2.0.0      
+arrow                            0.15.5     
+Babel                            0.9.6      
+backports.functools-lru-cache    1.6.1      
+backports.ssl-match-hostname     3.5.0.1    
+capacity                         1.3.14     
+certifi                          2020.4.5.1 
+cffi                             1.6.0      
+chardet                          3.0.4      
+click                            7.1.2      
+colorama                         0.4.3      
+confetti                         2.5.3      
+configobj                        4.7.2      
+contextlib2                      0.6.0.post1
+cryptography                     1.7.2      
+decorator                        3.4.0      
+enum34                           1.0.4      
+flux                             1.3.5      
+futures                          3.1.1      
+gossip                           2.4.0      
+idna                             2.9        
+infi.dtypes.iqn                  0.4.0      
+infi.dtypes.wwn                  0.1.1      
+infinisdk                        151.1.1    
+iniparse                         0.4        
+ipaddress                        1.0.16     
+IPy                              0.75       
+Jinja2                           2.7.2      
+kitchen                          1.1.1      
+Logbook                          1.5.3      
+MarkupSafe                       0.11       
+meld3                            0.6.10     
+mercurial                        2.6.2      
+mitba                            1.1.1      
+munch                            2.5.0      
+pact                             1.12.0     
+paramiko                         2.1.1      
+perf                             0.1        
+pip                              20.0.2     
+ply                              3.4        
+policycoreutils-default-encoding 0.1        
+psycopg2                         2.5.1      
+pyasn1                           0.1.9      
+pycparser                        2.14       
+pycurl                           7.19.0     
+pygobject                        3.22.0     
+pygpgme                          0.3        
+pyliblzma                        0.5.3      
+python-dateutil                  2.8.1      
+python-linux-procfs              0.4.9      
+pyudev                           0.15       
+pyxattr                          0.5.1      
+PyYAML                           3.10       
+requests                         2.23.0     
+schedutils                       0.4        
+sentinels                        1.0.0      
+seobject                         0.1        
+sepolicy                         1.1        
+setuptools                       0.9.8      
+six                              1.9.0      
+slip                             0.4.0      
+slip.dbus                        0.4.0      
+storage-interfaces               1.0.3      
+supervisor                       3.1.4      
+urlgrabber                       3.10       
+urllib3                          1.25.9     
+URLObject                        2.4.3      
+vintage                          0.4.1      
+virtualenv                       15.1.0     
+waiting                          1.4.1      
+wheel                            0.34.2     
+yum-metadata-parser              1.1.4      
+
+注意
+https://docs.ansible.com/ansible/latest/modules/infini_pool_module.html#infini-pool-module
+に記載されているPlaybookにconnection: localを追加して、Ansible Towerのホストで
+実行されるようにすること
