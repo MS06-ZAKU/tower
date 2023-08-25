@@ -1,0 +1,6 @@
+- hosts: datadomain
+  become: no
+  tasks:
+   - name: Create CIFS Share
+     shell: cifs share create sample path /data/col1/sample clients *
+   
