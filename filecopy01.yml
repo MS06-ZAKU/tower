@@ -3,5 +3,5 @@
   tasks:
    - name: Copy file
      copy:
-      src: "{src_file}"
-      dest: "{dest_file}"
+      src: "{{ src_file }}"
+      dest: "{{ dest_file }}"
