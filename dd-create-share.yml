@@ -2,7 +2,7 @@
   become: no
   tasks:
    - name: Create Mtree
-     shell: mtree create /data/col1/sample
+     command: mtree create /data/col1/sample
    - name: Create CIFS Share
-     shell: cifs share create sample path /data/col1/sample clients *
+     command: cifs share create sample path /data/col1/sample clients *
    
