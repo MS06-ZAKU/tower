@@ -2,9 +2,7 @@
   become: no
   tasks:
    - name: Create Mtree
-     remote_user: ansible
      shell: mtree create /data/col1/sample
    - name: Create CIFS Share
-     remote_user: ansible
      shell: cifs share create sample path /data/col1/sample clients *
    
